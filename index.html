@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali-GG | Игровой канал с 100 млн просмотров</title>
+    
+    <!-- 1. ИСПРАВЛЕНИЕ: Правильный заголовок и описание для Google -->
+    <title>Ali-GG | Официальный сайт и Игры</title>
+    <meta name="description" content="Официальный сайт блогера Ali-GG. Играйте в Clash of Cards, Good Tetris, Rebus и другие игры. Смотрите лучшие игровые моменты!">
+    
+    <!-- 2. ИСПРАВЛЕНИЕ: Иконка сайта (Favicon) -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
     <style>
+        /* ТВОИ ОРИГИНАЛЬНЫЕ СТИЛИ */
         :root {
             --primary: #ff4d5a;
             --secondary: #4d79ff;
@@ -241,6 +250,7 @@
             position: relative;
             overflow: hidden;
             border: 2px solid transparent;
+            cursor: pointer;
         }
         
         .btn-primary {
@@ -345,7 +355,7 @@
             left: 15px;
         }
         
-        /* Games Section */
+        /* Games Section (ОБНОВЛЕННЫЙ) */
         .games {
             padding: 100px 0;
             background: rgba(0, 0, 0, 0.2);
@@ -357,6 +367,13 @@
             gap: 30px;
         }
         
+        /* Сделал карточку ссылкой (display: block) */
+        a.game-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
         .game-card {
             background: rgba(26, 26, 46, 0.7);
             border-radius: 20px;
@@ -365,6 +382,7 @@
             transform: translateY(0);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
         }
         
         .game-card:hover {
@@ -376,6 +394,7 @@
         .game-image {
             height: 200px;
             overflow: hidden;
+            position: relative;
         }
         
         .game-image img {
@@ -389,6 +408,37 @@
             transform: scale(1.1);
         }
         
+        /* Добавил иконку play поверх картинки при наведении */
+        .game-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .game-card:hover .game-overlay {
+            opacity: 1;
+        }
+        
+        .play-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+            transform: scale(0.5);
+            transition: var(--transition);
+        }
+        
+        .game-card:hover .play-icon {
+            transform: scale(1);
+        }
+        
         .game-content {
             padding: 25px;
         }
@@ -397,8 +447,11 @@
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--accent);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1rem; /* Чуть меньше для этого шрифта, так как он широкий */
+            line-height: 1.5;
         }
-        
+
         /* Contact Section */
         .contact {
             padding: 100px 0;
@@ -554,7 +607,8 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="images/logo.jpg" alt="Ali-GG Logo">
+                    <!-- Заменил лого на фавикон для единообразия, но можно вернуть logo.jpg если есть -->
+                    <img src="images/favicon.png" alt="Ali-GG Logo" onerror="this.src='images/logo.jpg'">
                     <div class="logo-text">ALI_GG</div>
                 </div>
                 <nav>
@@ -617,7 +671,6 @@
                     
                     <h3 style="margin-top: 30px;">Наш подход</h3>
                     <p>Все видео создаются с использованием CapCut Pro, что позволяет нам создавать динамичный монтаж и добавлять уникальные визуальные эффекты.</p>
-                    <p>Наш контент - это смесь захватывающего геймплея, забавных мемов и ситуаций, которые близки каждому геймеру.</p>
                 </div>
                 
                 <div class="about-image animate-on-scroll">
@@ -627,41 +680,85 @@
         </div>
     </section>
 
-    <!-- Games Section -->
+    <!-- Games Section (ПОЛНОСТЬЮ ОБНОВЛЕННЫЙ РАЗДЕЛ) -->
     <section id="games" class="games">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">НАШИ ИГРЫ</h2>
+            <h2 class="section-title animate-on-scroll">МОИ ИГРЫ</h2>
             
             <div class="games-grid">
-                <div class="game-card animate-on-scroll">
-                    <div class="game-image">
-                        <img src="images/brawl-stars.jpg" alt="Brawl Stars">
-                    </div>
-                    <div class="game-content">
-                        <h3 class="game-title">Brawl Stars</h3>
-                        <p>Динамичные баталии, смешные моменты и эпичные победы в одной из самых популярных мобильных игр.</p>
-                    </div>
-                </div>
                 
-                <div class="game-card animate-on-scroll">
+                <!-- Игра 1: Clash of Cards -->
+                <a href="https://ali-good-gaming.github.io/Clash-of-Cards/" target="_blank" class="game-card animate-on-scroll">
                     <div class="game-image">
-                        <img src="images/standoff2.jpg" alt="Standoff 2">
+                        <img src="images/game-clash.jpg" alt="Clash of Cards">
+                        <div class="game-overlay"><i class="fas fa-play play-icon"></i></div>
                     </div>
                     <div class="game-content">
-                        <h3 class="game-title">Standoff 2</h3>
-                        <p>Напряженные PvP-схватки, тактические маневры и невероятные спасения в хардкорном шутере.</p>
+                        <h3 class="game-title">Clash of Cards</h3>
+                        <p>Карточная стратегия. Собери свою колоду и победи врага!</p>
                     </div>
-                </div>
+                </a>
                 
-                <div class="game-card animate-on-scroll">
+                <!-- Игра 2: Good Games -->
+                <a href="https://ali-good-gaming.github.io/good-games/" target="_blank" class="game-card animate-on-scroll">
                     <div class="game-image">
-                        <img src="images/clash-royale.jpg" alt="Clash Royale">
+                        <img src="images/game-good.jpg" alt="Good Games">
+                        <div class="game-overlay"><i class="fas fa-gamepad play-icon"></i></div>
                     </div>
                     <div class="game-content">
-                        <h3 class="game-title">Clash Royale</h3>
-                        <p>Стратегические битвы, неожиданные комбинации карт и захватывающие дуэли на аренах.</p>
+                        <h3 class="game-title">Good Games</h3>
+                        <p>Сборник лучших мини-игр для веселья.</p>
                     </div>
-                </div>
+                </a>
+                
+                <!-- Игра 3: IQ Test -->
+                <a href="https://ali-good-gaming.github.io/iq/" target="_blank" class="game-card animate-on-scroll">
+                    <div class="game-image">
+                        <img src="images/game-iq.jpg" alt="IQ Test">
+                        <div class="game-overlay"><i class="fas fa-brain play-icon"></i></div>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">IQ Test</h3>
+                        <p>Проверь свой уровень интеллекта прямо сейчас.</p>
+                    </div>
+                </a>
+
+                <!-- Игра 4: Game Flag -->
+                <a href="https://ali-good-gaming.github.io/game-flag/" target="_blank" class="game-card animate-on-scroll">
+                    <div class="game-image">
+                        <img src="images/game-flag.jpg" alt="Game Flag">
+                        <div class="game-overlay"><i class="fas fa-flag play-icon"></i></div>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Game Flag</h3>
+                        <p>Угадай флаг страны. Викторина по географии.</p>
+                    </div>
+                </a>
+
+                <!-- Игра 5: Rebus -->
+                <a href="https://ali-good-gaming.github.io/rebus/" target="_blank" class="game-card animate-on-scroll">
+                    <div class="game-image">
+                        <img src="images/game-rebus.jpg" alt="Rebus">
+                        <div class="game-overlay"><i class="fas fa-puzzle-piece play-icon"></i></div>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Rebus</h3>
+                        <p>Сложные ребусы и загадки для твоего ума.</p>
+                    </div>
+                </a>
+
+                <!-- Игра 6: Good Tetris -->
+                <a href="https://ali-good-gaming.github.io/good-tetris/" target="_blank" class="game-card animate-on-scroll">
+                    <div class="game-image">
+                        <img src="images/game-tetris.jpg" alt="Good Tetris">
+                        <div class="game-overlay"><i class="fas fa-cubes play-icon"></i></div>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Good Tetris</h3>
+                        <p>Классический тетрис в новом стиле Ali-GG.</p>
+                    </div>
+                </a>
+
             </div>
         </div>
     </section>
@@ -677,7 +774,7 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3 class="contact-title">Почта</h3>
-                    <p>Пишите нам по любым вопросам сотрудничества и предложениям</p>
+                    <p>Пишите нам по любым вопросам</p>
                     <a href="mailto:emailforsubscribersali.gg@gmail.com" class="contact-link">
                         emailforsubscribersali.gg@gmail.com
                     </a>
@@ -688,7 +785,7 @@
                         <i class="fab fa-telegram"></i>
                     </div>
                     <h3 class="contact-title">Telegram</h3>
-                    <p>Присоединяйтесь к нашему сообществу в Telegram</p>
+                    <p>Наше сообщество</p>
                     <a href="https://t.me/aligoodgaming" class="contact-link" target="_blank">
                         t.me/aligoodgaming
                     </a>
@@ -699,7 +796,7 @@
                         <i class="fas fa-video"></i>
                     </div>
                     <h3 class="contact-title">Контент</h3>
-                    <p>Предложите идею для следующего видео или рубрики</p>
+                    <p>Предложите идею для видео</p>
                     <a href="mailto:emailforsubscribersali.gg@gmail.com" class="contact-link">
                         Отправить идею
                     </a>
@@ -724,11 +821,11 @@
             </div>
             
             <div class="logo" style="justify-content: center; margin-bottom: 20px;">
-                <img src="images/logo.jpg" alt="Ali-GG Logo">
+                <img src="images/favicon.png" alt="Ali-GG Logo" onerror="this.src='images/logo.jpg'">
                 <div class="logo-text">ALI_GG</div>
             </div>
             
-            <p class="copyright">© 2025 Ali-GG (ALI_Good_Gaming). Все права защищены.</p>
+            <p class="copyright">© 2026 Ali-GG (ALI_Good_Gaming). Все права защищены.</p>
         </div>
     </footer>
 
